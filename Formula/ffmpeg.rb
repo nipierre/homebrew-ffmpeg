@@ -157,7 +157,6 @@ class Ffmpeg < Formula
     args << "--enable-libxml2" if build.with? "libxml2"
     args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-libzimg" if build.with? "zimg"
-    args << "--enable-libzvbi" if build.with? "libzvbi"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
 
@@ -180,7 +179,7 @@ class Ffmpeg < Formula
     
     if build.with? "libzvbi"
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["zvbi"].opt_lib/"pkgconfig"
-      args << "-—enable-libzvbi"
+      args << "--enable-libzvbi"
       args << "-—enable-indev=zvbi"
     end 
 
